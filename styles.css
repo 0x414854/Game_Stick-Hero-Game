@@ -1,0 +1,228 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Titan One', 'paytone One';
+}
+
+body {
+  cursor: pointer;
+}
+
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100px;
+}
+
+#score {
+  display: flex;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 10%;
+  font-size: 50px;
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+  color: white;
+  border-radius: 30px;
+  text-shadow: 0 4px 22px black;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+#time {
+  display: flex;
+  position: absolute;
+  top: 10%;
+  left: 23%;
+  width: 20%;
+  font-size: 20px;
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+  color: white;
+  border-radius: 30px;
+  text-shadow: 0 4px 12px black;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#high_score {
+  display: flex;
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  width: 28%;
+  font-size: 20px;
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+  color: white;
+  border-radius: 30px;
+  text-shadow: 0 4px 12px black;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#introduction {
+  display: flex;
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  top: 24%;
+  color: white;
+  background: linear-gradient(75deg, rgba(7, 51, 144, 0.6), rgba(32, 85, 193, 0.7), rgba(46, 110, 220, 0.6));
+  background-size: 400%;
+  text-shadow: 2px 2px 20px rgb(0, 0, 0);
+  box-shadow: 2px 2px 20px rgb(0, 0, 0), 2px 2px 30px rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 25px;
+  padding: 0;
+  border-radius: 30px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 2s;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+        color: black;
+        text-shadow: 2px 2px 20px rgb(255, 255, 255), 2px 2px 30px rgb(0, 0, 0);
+        box-shadow: 2px 2px 20px rgb(255, 255, 255), 2px 2px 30px rgb(0, 0, 0);
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+#restart {
+  width: 250px;
+  height: 90px;
+  position: absolute;
+  top: 28%;
+  border-radius:30px;
+  color: white;
+  background: linear-gradient(30deg, rgba(255, 0, 0, 0.9), rgba(208, 1, 1, 0.7), rgba(247, 0, 0, 0.9), rgba(208, 1, 1, 0.7));
+  background-size: 400%;
+  border: none;
+  font-weight: 600;
+  font-size: 25px;
+  display: none;
+  text-shadow: 2px 2px 20px rgb(0, 0, 0);
+  box-shadow: 2px 2px 20px rgb(255, 255, 255), 2px 2px 30px rgb(0, 0, 0);
+  animation: gradient 10s ease infinite;
+  cursor: pointer;
+  z-index: 2;
+  font-family: 'Titan One', 'paytone One';
+}
+
+#gameOverCanvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#perfect {
+  position: absolute;
+  font-size: 70px;
+  color: white;
+  opacity: 0;
+  transition: opacity 2s;
+  font-family: 'Titan One', 'paytone One';
+}
+
+.intro {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:   black;          
+  /* rgba(44, 86, 178, 0.8); */
+}
+
+.reveal {
+  position: relative;
+  display: flex;
+  background: black;
+  color: white;
+  font-size: 60px;
+  font-family: Titan One, sans-serif;
+  letter-spacing: 3px;
+  white-space: pre;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.reveal::before {
+    left: 70%;
+    animation: slideLeft 2.2s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+
+.reveal::after {
+      right: 50%;
+    animation: slideRight 2.2s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+
+span {
+  opacity: 0;
+  transform: scale(0);
+  animation: fadeIn 2.4s forwards;
+}
+
+.reveal::before,
+.reveal::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideLeft {
+  to {
+    left: -6%;
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    right: -6%;
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
